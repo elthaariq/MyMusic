@@ -32,10 +32,10 @@ public class Home extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         playButton = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        pauseButton = new javax.swing.JLabel();
+        stopButton = new javax.swing.JLabel();
+        uploadButton = new javax.swing.JLabel();
+        repeatButton = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -56,15 +56,15 @@ public class Home extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        playButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\play1-128x128 (1).png")); // NOI18N
+        playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/play1-128x128 (1).png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\pause-128x128 (1).png")); // NOI18N
+        pauseButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\pause-128x128 (1).png")); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\stop-128x128 (1).png")); // NOI18N
+        stopButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\stop-128x128 (1).png")); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\folder-upload-2-128x128 (1).png")); // NOI18N
+        uploadButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\folder-upload-2-128x128 (1).png")); // NOI18N
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\PngItem_2266177 (1).png")); // NOI18N
+        repeatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/PngItem_2266177 (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -72,26 +72,26 @@ public class Home extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(jLabel4)
+                .addComponent(repeatButton)
                 .addGap(39, 39, 39)
-                .addComponent(jLabel1)
+                .addComponent(pauseButton)
                 .addGap(33, 33, 33)
                 .addComponent(playButton)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(stopButton)
                 .addGap(49, 49, 49)
-                .addComponent(jLabel3)
+                .addComponent(uploadButton)
                 .addContainerGap(285, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(repeatButton)
                 .addGap(22, 22, 22))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(pauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -99,11 +99,11 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(stopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel3)
+                .addComponent(uploadButton)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -187,14 +187,14 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel pauseButton;
     private javax.swing.JLabel playButton;
+    private javax.swing.JLabel repeatButton;
+    private javax.swing.JLabel stopButton;
+    private javax.swing.JLabel uploadButton;
     // End of variables declaration//GEN-END:variables
 }
