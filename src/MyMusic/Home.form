@@ -167,21 +167,21 @@
                 <Component class="javax.swing.JLabel" name="pauseButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\user\Downloads\MyMusic\pause-128x128 (1).png"/>
+                      <Image iconType="3" name="/MyMusic/Pictures/pause-128x128 (1).png"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="stopButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\user\Downloads\MyMusic\stop-128x128 (1).png"/>
+                      <Image iconType="3" name="/MyMusic/Pictures/stop-128x128 (1).png"/>
                     </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="uploadButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Users\user\Downloads\MyMusic\folder-upload-2-128x128 (1).png"/>
+                      <Image iconType="3" name="/MyMusic/Pictures/folder-upload-2-128x128 (1).png"/>
                     </Property>
                   </Properties>
                 </Component>

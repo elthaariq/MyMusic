@@ -58,11 +58,11 @@ public class Home extends javax.swing.JFrame {
 
         playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/play1-128x128 (1).png"))); // NOI18N
 
-        pauseButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\pause-128x128 (1).png")); // NOI18N
+        pauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/pause-128x128 (1).png"))); // NOI18N
 
-        stopButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\stop-128x128 (1).png")); // NOI18N
+        stopButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/stop-128x128 (1).png"))); // NOI18N
 
-        uploadButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\user\\Downloads\\MyMusic\\folder-upload-2-128x128 (1).png")); // NOI18N
+        uploadButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/folder-upload-2-128x128 (1).png"))); // NOI18N
 
         repeatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/PngItem_2266177 (1).png"))); // NOI18N
 
