@@ -45,7 +45,7 @@ public class Home extends javax.swing.JFrame {
         headerPanel = new javax.swing.JPanel();
         appTitle = new javax.swing.JLabel();
         exitButton = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        settingsButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -170,7 +170,7 @@ public class Home extends javax.swing.JFrame {
 
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/power.png"))); // NOI18N
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/settings.png"))); // NOI18N
+        settingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/settings.png"))); // NOI18N
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -180,7 +180,7 @@ public class Home extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(appTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(settingsButton)
                 .addGap(39, 39, 39)
                 .addComponent(exitButton)
                 .addGap(32, 32, 32))
@@ -190,7 +190,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(settingsButton)
                     .addComponent(exitButton)
                     .addGroup(headerPanelLayout.createSequentialGroup()
                         .addGap(9, 9, 9)
@@ -289,11 +289,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel exitButton;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel pauseButton;
     private javax.swing.JLabel playButton;
     private javax.swing.JLabel repeatButton;
+    private javax.swing.JLabel settingsButton;
     private javax.swing.JLabel songNameDisplay;
     private javax.swing.JPanel songNameMainPanel;
     private javax.swing.JPanel songNameSubPanel;
