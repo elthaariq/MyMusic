@@ -5,6 +5,15 @@
  */
 package MyMusic;
 
+import jaco.mp3.player.MP3Player;
+import java.io.File;
+import java.nio.file.Paths;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
+import javax.sound.sampled.Line;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.Mixer;
 /**
  *
  * @author user
@@ -14,8 +23,47 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
+    //menetukan class MP3 player dari jaco mp3 player
+    MP3Player Player;
+    //menetukan file untuk lagu
+    File songFile;
+    //mebebtukan directory saat ini
+    String currentDirectory = "home.user";
+    //disini kita menentukan jalur untuk run
+    String currentPath;
+    //String ini untuk jalur atau gambar
+    String imagePath;
+    //kita membutuhkan string untuk app title
+    String appName = "My Music";
+    
+    //sekarang chek jika tombol repeat memungkin atau tidak
+    boolean repeat = false;
+    // disini kita membuat boolean untuk windowcollapsed
+    boolean windowCollapsed = false;
+    //disini kita membutuhkan untuk menentukan posisi xmouse dan ymouse di screen
+    int xMouse,yMouse;
+    
     public Home() {
         initComponents();
+        //disini untuk app title
+        appTitle.setText(appName);
+        
+        //disini kita pergi menuju file lagu
+        songFile = new File ("This-PC");
+        
+        //sekarang buat String untuk mendapatkan nama file
+        String fileName = songFile.getName();
+        //disini kita mengaturlabel nama lagu dengan nama ini
+        songNameDisplay.setText(fileName);
+        
+        //tambahkan method untuk variable player
+        Player = mp3Player();
+        //sekarang tamabahkan lagu ke player
+        Player.addToPlayList(songFile);
+        
+        //disini kita dapatkan jalur dan gambar di string
+        currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
+        imagePath = ("\\images");
     }
 
     /**
@@ -303,4 +351,153 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel vfullButton;
     private javax.swing.JLabel vupButton;
     // End of variables declaration//GEN-END:variables
+
+    //kita buat custom mp3 player
+    private MP3Player mp3Player() {
+        MP3Player mp3Player = new MP3Player ();
+        return mp3Player;
+    }
+    
+    //kita buat method untuk volume mengecil
+    private void volumeDownControl(Double valueToPlusMinus) {
+        //dapatkan informasi mixer dari audio sistem
+        Mixer.Info[] mixers = AudioSystem.getMixerInfo();
+        //sekarang hunakan loop for untuk list semua mixer
+        for (Mixer.Info mixerInfo : mixers){
+            //dapatkan mixer
+            Mixer mixer = AudioSystem.getMixer(mixerInfo);
+            //dapatkan line target
+            Line.Info[] lineInfos = mixer.getTargetLineInfo();
+            //disini gunakan loop lagi untuk list line
+            for (Line.Info lineInfo : lineInfos){
+                //buat null line
+                Line line = null;
+                //buat boolean terbuka
+                boolean opened = true;
+                // sekarang gunakan try exception untun line terbuka
+                try {
+                    line = mixer.getLine(lineInfo);
+                    opened = line.isOpen() || line instanceof Clip;
+                    //sekarang chek jika line tidak terbuka
+                    if (!opened){
+                        //buka line
+                        line.open();
+                    }
+                    //buat control float
+                    FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                    //sekarang buat jalur volume
+                    float currentVolume = volControl.getValue();
+                    //buat variable ganda dan value plus minus
+                    Double volumeToCut = valueToPlusMinus;
+                    //buat float dan hitung pejumlahan atau pengurangan volume
+                    float changeCalc = (float) ((float)currentVolume-(double)volumeToCut);
+                    //ubah value kedalam line volume
+                    volControl.setValue(changeCalc);
+                    
+                } catch (LineUnavailableException lineException){                   
+                } catch (IllegalArgumentException illException) {
+                } finally {
+                    //tutup line itu terbuka
+                    if (line != null && !opened){
+                        line.close();
+                    }
+                }
+            }
+        }
+    }
+    
+    //kita buat method untuk volume membesar
+    private void volumeUpControl(Double valueToPlusMinus) {
+        //dapatkan informasi mixer dari audio sistem
+        Mixer.Info[] mixers = AudioSystem.getMixerInfo();
+        //sekarang hunakan loop for untuk list semua mixer
+        for (Mixer.Info mixerInfo : mixers){
+            //dapatkan mixer
+            Mixer mixer = AudioSystem.getMixer(mixerInfo);
+            //dapatkan line target
+            Line.Info[] lineInfos = mixer.getTargetLineInfo();
+            //disini gunakan loop lagi untuk list line
+            for (Line.Info lineInfo : lineInfos){
+                //buat null line
+                Line line = null;
+                //buat boolean terbuka
+                boolean opened = true;
+                // sekarang gunakan try exception untun line terbuka
+                try {
+                    line = mixer.getLine(lineInfo);
+                    opened = line.isOpen() || line instanceof Clip;
+                    //sekarang chek jika line tidak terbuka
+                    if (!opened){
+                        //buka line
+                        line.open();
+                    }
+                    //buat control float
+                    FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                    //sekarang buat jalur volume
+                    float currentVolume = volControl.getValue();
+                    //buat variable ganda dan value plus minus
+                    Double volumeToCut = valueToPlusMinus;
+                    //buat float dan hitung pejumlahan atau pengurangan volume
+                    float changeCalc = (float) ((float)currentVolume+(double)volumeToCut);
+                    //ubah value kedalam line volume
+                    volControl.setValue(changeCalc);
+                    
+                } catch (LineUnavailableException lineException){                   
+                } catch (IllegalArgumentException illException) {
+                } finally {
+                    //tutup line itu terbuka
+                    if (line != null && !opened){
+                        line.close();
+                    }
+                }
+            }
+        }
+    }
+    
+    //kita buat method untuk volume 
+    private void volumeControl(Double valueToPlusMinus) {
+        //dapatkan informasi mixer dari audio sistem
+        Mixer.Info[] mixers = AudioSystem.getMixerInfo();
+        //sekarang hunakan loop for untuk list semua mixer
+        for (Mixer.Info mixerInfo : mixers){
+            //dapatkan mixer
+            Mixer mixer = AudioSystem.getMixer(mixerInfo);
+            //dapatkan line target
+            Line.Info[] lineInfos = mixer.getTargetLineInfo();
+            //disini gunakan loop lagi untuk list line
+            for (Line.Info lineInfo : lineInfos){
+                //buat null line
+                Line line = null;
+                //buat boolean terbuka
+                boolean opened = true;
+                // sekarang gunakan try exception untun line terbuka
+                try {
+                    line = mixer.getLine(lineInfo);
+                    opened = line.isOpen() || line instanceof Clip;
+                    //sekarang chek jika line tidak terbuka
+                    if (!opened){
+                        //buka line
+                        line.open();
+                    }
+                    //buat control float
+                    FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
+                    //sekarang buat jalur volume
+                    float currentVolume = volControl.getValue();
+                    //buat variable ganda dan value plus minus
+                    Double volumeToCut = valueToPlusMinus;
+                    //buat float dan hitung pejumlahan atau pengurangan volume
+                    float changeCalc = (float) ((double)volumeToCut);
+                    //ubah value kedalam line volume
+                    volControl.setValue(changeCalc);
+                    
+                } catch (LineUnavailableException | IllegalArgumentException lineException){
+                } finally {
+                    //tutup line itu terbuka
+                    if (line != null && !opened){
+                        line.close();
+                    }
+                }
+            }
+        }
+    }
 }
