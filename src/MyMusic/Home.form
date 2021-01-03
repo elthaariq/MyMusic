@@ -310,8 +310,8 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="appTitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="appTitle" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="settingsButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           <Component id="exitButton" min="-2" max="-2" attributes="0"/>
@@ -324,12 +324,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="appTitle" alignment="0" min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="settingsButton" min="-2" max="-2" attributes="0"/>
                               <Component id="exitButton" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Component id="appTitle" min="-2" max="-2" attributes="0"/>
-                              </Group>
                           </Group>
                           <EmptySpace pref="22" max="32767" attributes="0"/>
                       </Group>
@@ -341,6 +338,10 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="MyMusic - MP3 Player"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="appTitleMouseDragged"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="appTitleMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="exitButton">
                   <Properties>
@@ -348,6 +349,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/power.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="exitButtonMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="settingsButton">
                   <Properties>
@@ -355,6 +359,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/settings.png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="settingsButtonMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

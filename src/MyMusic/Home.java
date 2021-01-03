@@ -14,6 +14,7 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.Line;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
+import javax.swing.JOptionPane;
 /**
  *
  * @author user
@@ -215,10 +216,30 @@ public class Home extends javax.swing.JFrame {
         headerPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
         appTitle.setText("MyMusic - MP3 Player");
+        appTitle.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                appTitleMouseDragged(evt);
+            }
+        });
+        appTitle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                appTitleMouseClicked(evt);
+            }
+        });
 
         exitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/power.png"))); // NOI18N
+        exitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitButtonMouseClicked(evt);
+            }
+        });
 
         settingsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/settings.png"))); // NOI18N
+        settingsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                settingsButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -226,8 +247,8 @@ public class Home extends javax.swing.JFrame {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(appTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(appTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(settingsButton)
                 .addGap(39, 39, 39)
                 .addComponent(exitButton)
@@ -238,11 +259,9 @@ public class Home extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(appTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(settingsButton)
-                    .addComponent(exitButton)
-                    .addGroup(headerPanelLayout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(appTitle)))
+                    .addComponent(exitButton))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -294,6 +313,30 @@ public class Home extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void appTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseClicked
+        // TODO add your handling code here:
+        xMouse = evt.getX ();
+        yMouse = evt.getY ();
+    }//GEN-LAST:event_appTitleMouseClicked
+
+    private void appTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_appTitleMouseDragged
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exitButtonMouseClicked
+
+    private void settingsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsButtonMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this,"ini settingan kamu akan muncul disini");
+    }//GEN-LAST:event_settingsButtonMouseClicked
 
     /**
      * @param args the command line arguments
