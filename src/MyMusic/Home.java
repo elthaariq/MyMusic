@@ -66,7 +66,7 @@ public class Home extends javax.swing.JFrame {
         
         //disini kita dapatkan jalur dan gambar di string
         currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
-        imagePath = ("\\C:\\Users\\user\\Documents\\NetBeansProjects\\MyMusic - Final Project\\src\\MyMusic\\Pictures\\");
+        imagePath = ("\\Pictures");
     }
 
     /**
@@ -340,6 +340,7 @@ public class Home extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
@@ -363,12 +364,11 @@ public class Home extends javax.swing.JFrame {
             repeat = true;
             Player.setRepeat(repeat);
             
-            String image = currentPath + imagePath + "C:\\Users\\user\\Documents\\NetBeansProjects\\MyMusic - Final Project\\src\\MyMusic\\Pictures\\repeatOn.png";
-            repeatButton.setIcon(new ImageIcon(image));
-        } else if(repeat == true) {
+            String image = currentPath + imagePath + "\\PngItem_2266177(1).png";
+        } else if(repeat) {
             repeat = false;
             Player.setRepeat(repeat);
-            String image = currentPath + imagePath + "C:\\Users\\user\\Documents\\NetBeansProjects\\MyMusic - Final Project\\src\\MyMusic\\Pictures\\PngItem_2266177(1).png";
+            String image = currentPath + imagePath + "\\repeatOn.png";
             repeatButton.setIcon(new ImageIcon(image));
         }
     }//GEN-LAST:event_repeatButtonMouseClicked
