@@ -117,7 +117,7 @@
                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="vfullButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="muteButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="56" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -143,7 +143,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="muteButton" min="-2" max="-2" attributes="0"/>
                               <Component id="vfullButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="vdownButton" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="vupButton" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -160,6 +160,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/play1-128x128 (1).png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="playButtonMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="pauseButton">
                   <Properties>
@@ -167,6 +170,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/pause-128x128 (1).png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pauseButtonMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="stopButton">
                   <Properties>
@@ -174,6 +180,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/stop-128x128 (1).png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="stopButtonMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="uploadButton">
                   <Properties>
@@ -181,6 +190,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/folder-upload-2-128x128 (1).png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="uploadButtonMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="repeatButton">
                   <Properties>
@@ -188,6 +200,9 @@
                       <Image iconType="3" name="/MyMusic/Pictures/PngItem_2266177 (1).png"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="repeatButtonMouseClicked"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="vdownButton">
                   <Properties>
@@ -210,7 +225,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="muteButton">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/MyMusic/Pictures/volume_mute.png"/>
@@ -284,6 +299,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="songNameDisplay">
                       <Properties>
+                        <Property name="horizontalAlignment" type="int" value="0"/>
                         <Property name="text" type="java.lang.String" value="Buat Display Lagu"/>
                       </Properties>
                     </Component>
@@ -340,7 +356,7 @@
                   </Properties>
                   <Events>
                     <EventHandler event="mouseDragged" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="appTitleMouseDragged"/>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="appTitleMouseClicked"/>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="appTitleMousePressed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="exitButton">

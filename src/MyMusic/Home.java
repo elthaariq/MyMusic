@@ -14,6 +14,8 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.Line;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 /**
  *
@@ -64,7 +66,7 @@ public class Home extends javax.swing.JFrame {
         
         //disini kita dapatkan jalur dan gambar di string
         currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
-        imagePath = ("\\images");
+        imagePath = ("\\C:\\Users\\user\\Documents\\NetBeansProjects\\MyMusic - Final Project\\src\\MyMusic\\Pictures\\");
     }
 
     /**
@@ -87,7 +89,7 @@ public class Home extends javax.swing.JFrame {
         vdownButton = new javax.swing.JLabel();
         vupButton = new javax.swing.JLabel();
         vfullButton = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        muteButton = new javax.swing.JLabel();
         songNameMainPanel = new javax.swing.JPanel();
         songNameSubPanel = new javax.swing.JPanel();
         songNameDisplay = new javax.swing.JLabel();
@@ -105,14 +107,39 @@ public class Home extends javax.swing.JFrame {
         controlPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         playButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/play1-128x128 (1).png"))); // NOI18N
+        playButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                playButtonMouseClicked(evt);
+            }
+        });
 
         pauseButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/pause-128x128 (1).png"))); // NOI18N
+        pauseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pauseButtonMouseClicked(evt);
+            }
+        });
 
         stopButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/stop-128x128 (1).png"))); // NOI18N
+        stopButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stopButtonMouseClicked(evt);
+            }
+        });
 
         uploadButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/folder-upload-2-128x128 (1).png"))); // NOI18N
+        uploadButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                uploadButtonMouseClicked(evt);
+            }
+        });
 
         repeatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/PngItem_2266177 (1).png"))); // NOI18N
+        repeatButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                repeatButtonMouseClicked(evt);
+            }
+        });
 
         vdownButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/volume_down.png"))); // NOI18N
 
@@ -120,7 +147,7 @@ public class Home extends javax.swing.JFrame {
 
         vfullButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/volume_full.png"))); // NOI18N
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/volume_mute.png"))); // NOI18N
+        muteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/volume_mute.png"))); // NOI18N
 
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
@@ -144,7 +171,7 @@ public class Home extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(vfullButton)
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
+                .addComponent(muteButton)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         controlPanelLayout.setVerticalGroup(
@@ -164,7 +191,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                    .addComponent(muteButton)
                     .addComponent(vfullButton)
                     .addComponent(vdownButton)
                     .addComponent(vupButton))
@@ -176,6 +203,7 @@ public class Home extends javax.swing.JFrame {
         songNameSubPanel.setBackground(new java.awt.Color(255, 255, 255));
         songNameSubPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 5, true));
 
+        songNameDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         songNameDisplay.setText("Buat Display Lagu");
 
         javax.swing.GroupLayout songNameSubPanelLayout = new javax.swing.GroupLayout(songNameSubPanel);
@@ -222,8 +250,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
         appTitle.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                appTitleMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                appTitleMousePressed(evt);
             }
         });
 
@@ -314,11 +342,42 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void appTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseClicked
+    private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
         // TODO add your handling code here:
-        xMouse = evt.getX ();
-        yMouse = evt.getY ();
-    }//GEN-LAST:event_appTitleMouseClicked
+        Player.play();
+    }//GEN-LAST:event_playButtonMouseClicked
+
+    private void stopButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopButtonMouseClicked
+        // TODO add your handling code here:
+        Player.stop();
+    }//GEN-LAST:event_stopButtonMouseClicked
+
+    private void pauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pauseButtonMouseClicked
+        // TODO add your handling code here:
+        Player.pause();
+    }//GEN-LAST:event_pauseButtonMouseClicked
+
+    private void repeatButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repeatButtonMouseClicked
+        // TODO add your handling code here:
+        if(repeat == false) {
+            repeat = true;
+            Player.setRepeat(repeat);
+            
+            String image = currentPath + imagePath + "C:\\Users\\user\\Documents\\NetBeansProjects\\MyMusic - Final Project\\src\\MyMusic\\Pictures\\repeatOn.png";
+            repeatButton.setIcon(new ImageIcon(image));
+        } else if(repeat == true) {
+            repeat = false;
+            Player.setRepeat(repeat);
+            String image = currentPath + imagePath + "C:\\Users\\user\\Documents\\NetBeansProjects\\MyMusic - Final Project\\src\\MyMusic\\Pictures\\PngItem_2266177(1).png";
+            repeatButton.setIcon(new ImageIcon(image));
+        }
+    }//GEN-LAST:event_repeatButtonMouseClicked
+
+    private void appTitleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMousePressed
+        // TODO add your handling code here:
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_appTitleMousePressed
 
     private void appTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseDragged
         // TODO add your handling code here:
@@ -335,8 +394,24 @@ public class Home extends javax.swing.JFrame {
 
     private void settingsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingsButtonMouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this,"ini settingan kamu akan muncul disini");
+        JOptionPane.showMessageDialog(this, "Settingan kamu akan muncul di sini!");
     }//GEN-LAST:event_settingsButtonMouseClicked
+
+    private void uploadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadButtonMouseClicked
+        // TODO add your handling code here:
+        JFileChooser openFileChooser = new JFileChooser(currentDirectory);
+        openFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!"));
+        int result = openFileChooser.showOpenDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            songFile = openFileChooser.getSelectedFile();
+            Player.addToPlayList(songFile);
+            Player.skipForward();
+            currentDirectory = songFile.getAbsolutePath();
+            songNameDisplay.setText("Playing Now... | " + songFile.getName());
+            
+            
+        }
+    }//GEN-LAST:event_uploadButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -379,8 +454,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel controlPanel;
     private javax.swing.JLabel exitButton;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel muteButton;
     private javax.swing.JLabel pauseButton;
     private javax.swing.JLabel playButton;
     private javax.swing.JLabel repeatButton;
@@ -401,7 +476,7 @@ public class Home extends javax.swing.JFrame {
         return mp3Player;
     }
     
-    //kita buat method untuk volume mengecil
+    //kita buat method untuk mengecilkan volume
     private void volumeDownControl(Double valueToPlusMinus) {
         //dapatkan informasi mixer dari audio sistem
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
@@ -440,7 +515,7 @@ public class Home extends javax.swing.JFrame {
                 } catch (LineUnavailableException lineException){                   
                 } catch (IllegalArgumentException illException) {
                 } finally {
-                    //tutup line itu terbuka
+                    //tutup line jika terbuka
                     if (line != null && !opened){
                         line.close();
                     }
