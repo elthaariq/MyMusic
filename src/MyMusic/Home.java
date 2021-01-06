@@ -6,6 +6,8 @@
 package MyMusic;
 
 import jaco.mp3.player.MP3Player;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.io.File;
 import java.nio.file.Paths;
 import javax.sound.sampled.AudioSystem;
@@ -250,6 +252,9 @@ public class Home extends javax.swing.JFrame {
             }
         });
         appTitle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                appTitleMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 appTitleMousePressed(evt);
             }
@@ -412,6 +417,25 @@ public class Home extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_uploadButtonMouseClicked
+
+    private void appTitleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2){
+            if (windowCollapsed == false){
+                windowCollapsed = true;
+                this.setSize(new Dimension (this.getSize(). width, 50));
+                
+                appTitle.setFont(new Font ("times new roman", 0, 12));
+                appTitle.setText("Playing now...| " + songFile.getName());
+            } else if (windowCollapsed == true) {
+                windowCollapsed = false;
+                this.setSize(new Dimension (this.getSize(). width,250));
+                
+                appTitle.setFont(new Font ("times new roman", 0, 12));
+                appTitle.setText(appName);
+            }
+        }
+    }//GEN-LAST:event_appTitleMouseClicked
 
     /**
      * @param args the command line arguments
