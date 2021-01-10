@@ -55,7 +55,7 @@ public class Home extends javax.swing.JFrame {
         appTitle.setText(appName);
         
         //disini kita pergi menuju file lagu
-        songFile = new File ("");
+        songFile = new File ("Untuk Display Lagu");
         
         //sekarang buat String untuk mendapatkan nama file
         String fileName = songFile.getName();
@@ -197,23 +197,23 @@ public class Home extends javax.swing.JFrame {
         songNameSubPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 5, true));
 
         songNameDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        songNameDisplay.setText("Buat Display Lagu");
+        songNameDisplay.setText("Untuk Display Lagu");
 
         javax.swing.GroupLayout songNameSubPanelLayout = new javax.swing.GroupLayout(songNameSubPanel);
         songNameSubPanel.setLayout(songNameSubPanelLayout);
         songNameSubPanelLayout.setHorizontalGroup(
             songNameSubPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(songNameSubPanelLayout.createSequentialGroup()
-                .addGap(355, 355, 355)
+                .addGap(343, 343, 343)
                 .addComponent(songNameDisplay)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         songNameSubPanelLayout.setVerticalGroup(
             songNameSubPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(songNameSubPanelLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, songNameSubPanelLayout.createSequentialGroup()
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(songNameDisplay)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
 
         javax.swing.GroupLayout songNameMainPanelLayout = new javax.swing.GroupLayout(songNameMainPanel);
@@ -363,26 +363,50 @@ public class Home extends javax.swing.JFrame {
             .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(866, 569));
+        pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
+    private void muteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_muteButtonMouseClicked
         // TODO add your handling code here:
-        Player.play();
-        
-        
-    }//GEN-LAST:event_playButtonMouseClicked
+        volumeControl(0.0);
+    }//GEN-LAST:event_muteButtonMouseClicked
 
-    private void stopButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopButtonMouseClicked
+    private void vfullButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vfullButtonMouseClicked
         // TODO add your handling code here:
-        Player.stop();
-    }//GEN-LAST:event_stopButtonMouseClicked
+        volumeControl(1.0);
+    }//GEN-LAST:event_vfullButtonMouseClicked
 
-    private void pauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pauseButtonMouseClicked
+    private void vupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vupButtonMouseClicked
         // TODO add your handling code here:
-        Player.pause();
-    }//GEN-LAST:event_pauseButtonMouseClicked
+        volumeUpControl(0.1);
+    }//GEN-LAST:event_vupButtonMouseClicked
+
+    private void vdownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vdownButtonMouseClicked
+        // TODO add your handling code here:
+        volumeDownControl(0.1);
+    }//GEN-LAST:event_vdownButtonMouseClicked
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        // TODO add your handling code here:
+        int confirm = JOptionPane.showConfirmDialog(this,
+            "Yakin untuk keluar dari MyMusic?",
+            "Konfirmasi Keluar Aplikasi",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_exitButtonMouseClicked
+
+    private void appTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseDragged
+        // TODO add your handling code here:
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_appTitleMouseDragged
 
     private void repeatButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repeatButtonMouseClicked
 
@@ -390,36 +414,15 @@ public class Home extends javax.swing.JFrame {
         if(repeat == false) {
             repeat = true;
             Player.setRepeat(repeat);
-            
-            repeatOnOff.setText("Repeat On Anjayani");
+
+            repeatOnOff.setText("Repeat On");
         } else if(repeat == true) {
             repeat = false;
             Player.setRepeat(repeat);
-            
+
             repeatOnOff.setText("Repeat Off");
         }
     }//GEN-LAST:event_repeatButtonMouseClicked
-
-    private void appTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseDragged
-        // TODO add your handling code here:
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-        
-        this.setLocation(x - xMouse, y - yMouse);
-    }//GEN-LAST:event_appTitleMouseDragged
-
-    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-        // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(this,
-        "Yakin untuk keluar dari MyMusic?",
-        "Konfirmasi Keluar Aplikasi",
-        JOptionPane.YES_NO_OPTION,
-        JOptionPane.QUESTION_MESSAGE);
-
-        if (confirm == JOptionPane.YES_OPTION) {
-            this.dispose();
-        }
-    }//GEN-LAST:event_exitButtonMouseClicked
 
     private void uploadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadButtonMouseClicked
         // TODO add your handling code here:
@@ -432,30 +435,25 @@ public class Home extends javax.swing.JFrame {
             Player.skipForward();
             currentDirectory = songFile.getAbsolutePath();
             songNameDisplay.setText("Playing Now... | " + songFile.getName());
-            
-            
+
         }
     }//GEN-LAST:event_uploadButtonMouseClicked
 
-    private void vdownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vdownButtonMouseClicked
+    private void stopButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopButtonMouseClicked
         // TODO add your handling code here:
-        volumeDownControl(0.1);
-    }//GEN-LAST:event_vdownButtonMouseClicked
+        Player.stop();
+    }//GEN-LAST:event_stopButtonMouseClicked
 
-    private void vupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vupButtonMouseClicked
+    private void pauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pauseButtonMouseClicked
         // TODO add your handling code here:
-        volumeUpControl(0.1);
-    }//GEN-LAST:event_vupButtonMouseClicked
+        Player.pause();
+    }//GEN-LAST:event_pauseButtonMouseClicked
 
-    private void vfullButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vfullButtonMouseClicked
+    private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
         // TODO add your handling code here:
-        volumeControl(1.0);
-    }//GEN-LAST:event_vfullButtonMouseClicked
+        Player.play();
 
-    private void muteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_muteButtonMouseClicked
-        // TODO add your handling code here:
-        volumeControl(0.0);
-    }//GEN-LAST:event_muteButtonMouseClicked
+    }//GEN-LAST:event_playButtonMouseClicked
 
     /**
      * @param args the command line arguments
