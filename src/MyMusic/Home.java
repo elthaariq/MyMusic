@@ -39,7 +39,7 @@ public class Home extends javax.swing.JFrame {
     //String ini untuk jalur atau gambar
     String imagePath;
     //kita membutuhkan string untuk app title
-    String appName = "My Music";
+    String appName = "My Music - MP3 Player";
     
     //sekarang chek jika tombol repeat memungkin atau tidak
     boolean repeat = false;
@@ -88,8 +88,8 @@ public class Home extends javax.swing.JFrame {
         pauseButton = new javax.swing.JLabel();
         stopButton = new javax.swing.JLabel();
         uploadButton = new javax.swing.JLabel();
-        repeatButton = new javax.swing.JLabel();
         repeatOnOff = new javax.swing.JLabel();
+        repeatButton = new javax.swing.JLabel();
         songNameMainPanel = new javax.swing.JPanel();
         songNameSubPanel = new javax.swing.JPanel();
         songNameDisplay = new javax.swing.JLabel();
@@ -139,6 +139,9 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        repeatOnOff.setFont(new java.awt.Font("Berlin Sans FB", 0, 10)); // NOI18N
+        repeatOnOff.setText("Repeat Off");
+
         repeatButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MyMusic/Pictures/repeat.png"))); // NOI18N
         repeatButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -146,49 +149,51 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        repeatOnOff.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        repeatOnOff.setText("Repeat Off");
-
         javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
         controlPanel.setLayout(controlPanelLayout);
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlPanelLayout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap(166, Short.MAX_VALUE)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                        .addComponent(repeatButton)
-                        .addGap(59, 59, 59))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
                         .addComponent(repeatOnOff)
-                        .addGap(53, 53, 53)))
-                .addComponent(pauseButton)
-                .addGap(33, 33, 33)
+                        .addGap(144, 144, 144))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                        .addComponent(repeatButton)
+                        .addGap(52, 52, 52)
+                        .addComponent(pauseButton)
+                        .addGap(38, 38, 38)))
                 .addComponent(playButton)
                 .addGap(33, 33, 33)
                 .addComponent(stopButton)
                 .addGap(60, 60, 60)
                 .addComponent(uploadButton)
-                .addGap(177, 177, 177))
+                .addGap(190, 190, 190))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(controlPanelLayout.createSequentialGroup()
+                            .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(controlPanelLayout.createSequentialGroup()
+                                    .addComponent(pauseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(13, 13, 13))
+                                .addGroup(controlPanelLayout.createSequentialGroup()
+                                    .addComponent(repeatButton)
+                                    .addGap(14, 14, 14)))
+                            .addComponent(repeatOnOff)
+                            .addGap(10, 10, 10))
+                        .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(stopButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(playButton, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(controlPanelLayout.createSequentialGroup()
-                        .addComponent(repeatButton)
-                        .addGap(11, 11, 11)
-                        .addComponent(repeatOnOff)
-                        .addGap(8, 8, 8))
-                    .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(pauseButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(stopButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(playButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 12, Short.MAX_VALUE))
-            .addGroup(controlPanelLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(uploadButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(32, 32, 32)
+                        .addComponent(uploadButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         songNameMainPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -196,6 +201,7 @@ public class Home extends javax.swing.JFrame {
         songNameSubPanel.setBackground(new java.awt.Color(255, 255, 255));
         songNameSubPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 5, true));
 
+        songNameDisplay.setFont(new java.awt.Font("Berlin Sans FB", 0, 11)); // NOI18N
         songNameDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         songNameDisplay.setText("Untuk Display Lagu");
 
@@ -204,7 +210,7 @@ public class Home extends javax.swing.JFrame {
         songNameSubPanelLayout.setHorizontalGroup(
             songNameSubPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(songNameSubPanelLayout.createSequentialGroup()
-                .addGap(343, 343, 343)
+                .addGap(347, 347, 347)
                 .addComponent(songNameDisplay)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -236,6 +242,7 @@ public class Home extends javax.swing.JFrame {
         headerPanel.setBackground(java.awt.SystemColor.controlHighlight);
         headerPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 5, true));
 
+        appTitle.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         appTitle.setText("MyMusic - MP3 Player");
         appTitle.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -327,11 +334,11 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(vdownButton)
-                    .addComponent(vupButton)
-                    .addComponent(vfullButton)
-                    .addComponent(muteButton))
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(vdownButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(vupButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(vfullButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(muteButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
 
@@ -356,7 +363,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -452,7 +459,6 @@ public class Home extends javax.swing.JFrame {
     private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
         // TODO add your handling code here:
         Player.play();
-
     }//GEN-LAST:event_playButtonMouseClicked
 
     /**
