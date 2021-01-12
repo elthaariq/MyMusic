@@ -154,7 +154,7 @@ public class Home extends javax.swing.JFrame {
         controlPanelLayout.setHorizontalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
-                .addContainerGap(174, Short.MAX_VALUE)
+                .addContainerGap(187, Short.MAX_VALUE)
                 .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(controlPanelLayout.createSequentialGroup()
                         .addComponent(repeatButton)
@@ -167,7 +167,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(stopButton)
                 .addGap(60, 60, 60)
                 .addComponent(uploadButton)
-                .addGap(190, 190, 190))
+                .addGap(177, 177, 177))
         );
         controlPanelLayout.setVerticalGroup(
             controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,16 +197,17 @@ public class Home extends javax.swing.JFrame {
         songNameSubPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 204, 255), 5, true));
 
         songNameDisplay.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
+        songNameDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         songNameDisplay.setText("Untuk Display Lagu");
 
         javax.swing.GroupLayout songNameSubPanelLayout = new javax.swing.GroupLayout(songNameSubPanel);
         songNameSubPanel.setLayout(songNameSubPanelLayout);
         songNameSubPanelLayout.setHorizontalGroup(
             songNameSubPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(songNameSubPanelLayout.createSequentialGroup()
-                .addGap(339, 339, 339)
-                .addComponent(songNameDisplay)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, songNameSubPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(songNameDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         songNameSubPanelLayout.setVerticalGroup(
             songNameSubPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
