@@ -427,15 +427,15 @@ public class Home extends javax.swing.JFrame {
 
     private void uploadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadButtonMouseClicked
         // TODO add your handling code here:
-        JFileChooser openFileChooser = new JFileChooser(currentDirectory);
-        openFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!"));
+        JFileChooser openFileChooser = new JFileChooser(currentDirectory);                 //Variabel untuk memilih musik
+        openFileChooser.setFileFilter(new FileTypeFilter(".mp3", "Open MP3 Files Only!")); //Untuk memfilter, jadi menampikan file dengan format MP3 saja
         int result = openFileChooser.showOpenDialog(null);
         if(result == JFileChooser.APPROVE_OPTION){
-            songFile = openFileChooser.getSelectedFile();
+            songFile = openFileChooser.getSelectedFile();                                  //Variabel untuk memilih musik yang akan diputar
             Player.addToPlayList(songFile);
-            Player.skipForward();
-            currentDirectory = songFile.getAbsolutePath();
-            songNameDisplay.setText("Playing Now... | " + songFile.getName());
+            Player.skipForward();                                                          //Untuk memutar musik otomatis, ketika kita ingin upload musiknya
+            currentDirectory = songFile.getAbsolutePath();                                 //Variabel untuk mengambil nama file musik
+            songNameDisplay.setText("Playing Now... | " + songFile.getName());             //Variabel untuk menampilkan nama file musik yang kita pilih, dan akan ditampilkan di label songNameDisplay
 
         }
     }//GEN-LAST:event_uploadButtonMouseClicked
