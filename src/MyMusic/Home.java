@@ -28,46 +28,46 @@ public class Home extends javax.swing.JFrame {
     /**
      * Creates new form Home
      */
-    //menetukan class MP3 player dari jaco mp3 player
+    //Menetukan class MP3 player dari library jaco mp3 player
     MP3Player Player;
-    //menetukan file untuk lagu
+    //Menetukan file untuk lagu
     File songFile;
-    //mebebtukan directory saat ini
+    //Menentukan directory saat ini
     String currentDirectory = "home.user";
     //disini kita menentukan jalur untuk run
     String currentPath;
     //String ini untuk jalur atau gambar
     String imagePath;
-    //kita membutuhkan string untuk app title
+    //Kita membutuhkan string untuk app title
     String appName = "";
     
-    //sekarang chek jika tombol repeat memungkin atau tidak
+    //Sekarang check jika tombol repeat nyala atau tidak
     boolean repeat = false;
-    // disini kita membuat boolean untuk windowcollapsed
+    //Disini kita membuat boolean untuk windowcollapsed
     boolean windowCollapsed = false;
-    //disini kita membutuhkan untuk menentukan posisi xmouse dan ymouse di screen
+    //Disini kita membutuhkan untuk menentukan posisi xmouse dan ymouse di screen
     int xMouse,yMouse;
     private int count;
     
     public Home() {
         initComponents();
-        //disini untuk app title
+        //Disini untuk app title
         appTitle.setText(appName);
         
-        //disini kita pergi menuju file lagu
+        //Disini kita pergi menuju file lagu
         songFile = new File ("Untuk Display Lagu");
         
-        //sekarang buat String untuk mendapatkan nama file
+        //Sekarang buat String untuk mendapatkan nama file
         String fileName = songFile.getName();
-        //disini kita mengaturlabel nama lagu dengan nama ini
+        //Disini kita mengaturlabel nama lagu dengan nama ini
         songNameDisplay.setText(fileName);
         
-        //tambahkan method untuk variable player
+        //Tambahkan method untuk variable player
         Player = mp3Player();
-        //sekarang tamabahkan lagu ke player
+        //Sekarang tamabahkan lagu ke player
         Player.addToPlayList(songFile);
         
-        //disini kita dapatkan jalur dan gambar di string
+        //Disini kita dapatkan jalur dan gambar di string
         currentPath = Paths.get(".").toAbsolutePath().normalize().toString();
         imagePath = ("\\Pictures");
     }
@@ -368,62 +368,20 @@ public class Home extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void muteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_muteButtonMouseClicked
+    private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
         // TODO add your handling code here:
-        volumeControl(0.0);
-    }//GEN-LAST:event_muteButtonMouseClicked
+        Player.play();                                                      //Untuk memutar lagu
+    }//GEN-LAST:event_playButtonMouseClicked
 
-    private void vfullButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vfullButtonMouseClicked
+    private void pauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pauseButtonMouseClicked
         // TODO add your handling code here:
-        volumeControl(1.0);
-    }//GEN-LAST:event_vfullButtonMouseClicked
+        Player.pause();                                                     //Untuk memberhentikan lagu
+    }//GEN-LAST:event_pauseButtonMouseClicked
 
-    private void vupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vupButtonMouseClicked
+    private void stopButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopButtonMouseClicked
         // TODO add your handling code here:
-        volumeUpControl(0.1);
-    }//GEN-LAST:event_vupButtonMouseClicked
-
-    private void vdownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vdownButtonMouseClicked
-        // TODO add your handling code here:
-        volumeDownControl(0.1);
-    }//GEN-LAST:event_vdownButtonMouseClicked
-
-    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
-        // TODO add your handling code here:
-        int confirm = JOptionPane.showConfirmDialog(this,
-            "Yakin untuk keluar dari MyMusic?",
-            "Konfirmasi Keluar Aplikasi",
-            JOptionPane.YES_NO_OPTION,
-            JOptionPane.QUESTION_MESSAGE);
-
-        if (confirm == JOptionPane.YES_OPTION) {
-            this.dispose();
-        }
-    }//GEN-LAST:event_exitButtonMouseClicked
-
-    private void appTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseDragged
-        // TODO add your handling code here:
-        int x = evt.getXOnScreen();
-        int y = evt.getYOnScreen();
-
-        this.setLocation(x - xMouse, y - yMouse);
-    }//GEN-LAST:event_appTitleMouseDragged
-
-    private void repeatButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repeatButtonMouseClicked
-
-        // TODO add your handling code here:
-        if(repeat == false) {
-            repeat = true;
-            Player.setRepeat(repeat);
-
-            repeatOnOff.setText("Repeat On");
-        } else if(repeat == true) {
-            repeat = false;
-            Player.setRepeat(repeat);
-
-            repeatOnOff.setText("Repeat Off");
-        }
-    }//GEN-LAST:event_repeatButtonMouseClicked
+        Player.stop();                                                      //Untuk memberhentikan lagu, dan mulai lagi dari awal
+    }//GEN-LAST:event_stopButtonMouseClicked
 
     private void uploadButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadButtonMouseClicked
         // TODO add your handling code here:
@@ -440,20 +398,71 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_uploadButtonMouseClicked
 
-    private void stopButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stopButtonMouseClicked
-        // TODO add your handling code here:
-        Player.stop();
-    }//GEN-LAST:event_stopButtonMouseClicked
+    private void repeatButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_repeatButtonMouseClicked
 
-    private void pauseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pauseButtonMouseClicked
         // TODO add your handling code here:
-        Player.pause();
-    }//GEN-LAST:event_pauseButtonMouseClicked
+        
+        //Untuk tombol repeat
+        //Jika kita ingin mengaktifkan repeat, maka akan muncul "Repeat On"
+        if(repeat == false) {
+            repeat = true;
+            Player.setRepeat(repeat);
 
-    private void playButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playButtonMouseClicked
+            repeatOnOff.setText("Repeat On");
+            
+        //Jika kita ingin menonaktifkan repeat, maka akan muncul "Repeat Off"
+        } else if(repeat == true) {
+            repeat = false;
+            Player.setRepeat(repeat);
+
+            repeatOnOff.setText("Repeat Off");
+        }
+    }//GEN-LAST:event_repeatButtonMouseClicked
+
+    private void appTitleMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_appTitleMouseDragged
         // TODO add your handling code here:
-        Player.play();
-    }//GEN-LAST:event_playButtonMouseClicked
+        
+        //Untuk mendrag aplikasi
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_appTitleMouseDragged
+
+    private void exitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitButtonMouseClicked
+        // TODO add your handling code here:
+        
+        //Untuk memberikan peringatan jika kita klik tombol "Exit", maka dialog peringatan jika kita mau keluar dari aplikasi atau tidak
+        int confirm = JOptionPane.showConfirmDialog(this,
+            "Yakin untuk keluar dari MyMusic?",
+            "Konfirmasi Keluar Aplikasi",
+            JOptionPane.YES_NO_OPTION,
+            JOptionPane.QUESTION_MESSAGE);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            this.dispose();
+        }
+    }//GEN-LAST:event_exitButtonMouseClicked
+
+    private void vdownButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vdownButtonMouseClicked
+        // TODO add your handling code here:
+        volumeDownControl(0.1);                                            //Untuk mengecilkan volume
+    }//GEN-LAST:event_vdownButtonMouseClicked
+
+    private void vupButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vupButtonMouseClicked
+        // TODO add your handling code here:
+        volumeUpControl(0.1);                                              //Untuk membesarkan volume
+    }//GEN-LAST:event_vupButtonMouseClicked
+
+    private void vfullButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vfullButtonMouseClicked
+        // TODO add your handling code here:
+        volumeControl(1.0);                                                //Untuk mengatur volume menjadi full
+    }//GEN-LAST:event_vfullButtonMouseClicked
+
+    private void muteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_muteButtonMouseClicked
+        // TODO add your handling code here:
+        volumeControl(0.0);                                                //Untuk mengatur volume menjadi hening atau mute
+    }//GEN-LAST:event_muteButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -512,52 +521,52 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel vupButton;
     // End of variables declaration//GEN-END:variables
 
-    //kita buat custom mp3 player
+    //Kita buat custom mp3 player
     private MP3Player mp3Player() {
         MP3Player mp3Player = new MP3Player ();
         return mp3Player;
     }
     
-    //kita buat method untuk mengecilkan volume
+    //Kita buat method untuk mengecilkan volume
     private void volumeDownControl(Double valueToPlusMinus) {
-        //dapatkan informasi mixer dari audio sistem
+        //Untuk mendapatkan informasi mixer dari AudioSystem
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
         //sekarang hunakan loop for untuk list semua mixer
         for (Mixer.Info mixerInfo : mixers){
-            //dapatkan mixer
+            //Untuk mendapatkan mixer
             Mixer mixer = AudioSystem.getMixer(mixerInfo);
-            //dapatkan line target
+            //Untuk mendapatkan Target Line
             Line.Info[] lineInfos = mixer.getTargetLineInfo();
-            //disini gunakan loop lagi untuk list line
+            //Disini gunakan loop lagi untuk list line
             for (Line.Info lineInfo : lineInfos){
-                //buat null line
+                //Buat null line
                 Line line = null;
-                //buat boolean terbuka
+                //Untuk membuat boolen menjadi terbuka
                 boolean opened = true;
-                // sekarang gunakan try exception untun line terbuka
+                //Try exception untuk membuka line
                 try {
                     line = mixer.getLine(lineInfo);
                     opened = line.isOpen() || line instanceof Clip;
-                    //sekarang chek jika line tidak terbuka
+                    //Sekarang check jika line tidak terbuka
                     if (!opened){
-                        //buka line
+                        //Buka line
                         line.open();
                     }
-                    //buat control float
+                    //Buat control float
                     FloatControl volControl = (FloatControl) line.getControl(FloatControl.Type.VOLUME);
-                    //sekarang buat jalur volume
+                    //Buat jalur volume
                     float currentVolume = volControl.getValue();
-                    //buat variable ganda dan value plus minus
+                    //Buat variable ganda dan value plus minus
                     Double volumeToCut = valueToPlusMinus;
-                    //buat float dan hitung pejumlahan atau pengurangan volume
+                    //Buat float dan hitung pejumlahan atau pengurangan volume
                     float changeCalc = (float) ((float)currentVolume-(double)volumeToCut);
-                    //ubah value kedalam line volume
+                    //Ubah value kedalam line volume
                     volControl.setValue(changeCalc);
                     
                 } catch (LineUnavailableException lineException){                   
                 } catch (IllegalArgumentException illException) {
                 } finally {
-                    //tutup line jika terbuka
+                    //Tutup line jika terbuka
                     if (line != null && !opened){
                         line.close();
                     }
@@ -566,7 +575,7 @@ public class Home extends javax.swing.JFrame {
         }
     }
     
-    //kita buat method untuk volume membesar
+    //Kita buat method untuk membesarkan volume
     private void volumeUpControl(Double valueToPlusMinus) {
         //dapatkan informasi mixer dari audio sistem
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
@@ -582,7 +591,7 @@ public class Home extends javax.swing.JFrame {
                 Line line = null;
                 //buat boolean terbuka
                 boolean opened = true;
-                // sekarang gunakan try exception untun line terbuka
+                // sekarang gunakan try exception untuk line terbuka
                 try {
                     line = mixer.getLine(lineInfo);
                     opened = line.isOpen() || line instanceof Clip;
@@ -614,7 +623,7 @@ public class Home extends javax.swing.JFrame {
         }
     }
     
-    //kita buat method untuk volume 
+    //Kita buat method untuk volume 
     private void volumeControl(Double valueToPlusMinus) {
         //dapatkan informasi mixer dari audio sistem
         Mixer.Info[] mixers = AudioSystem.getMixerInfo();
