@@ -103,7 +103,7 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        backgroundPanel.setBackground(new java.awt.Color(153, 204, 255));
+        backgroundPanel.setBackground(new java.awt.Color(0, 0, 0));
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
 
