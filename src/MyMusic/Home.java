@@ -55,7 +55,7 @@ public class Home extends javax.swing.JFrame {
         appTitle.setText(appName);
         
         //Disini kita pergi menuju file lagu
-        songFile = new File ("Untuk Display Lagu");
+        songFile = new File (".......");
         
         //Sekarang buat String untuk mendapatkan nama file
         String fileName = songFile.getName();
@@ -407,14 +407,14 @@ public class Home extends javax.swing.JFrame {
         if(repeat == false) {
             repeat = true;
             Player.setRepeat(repeat);
-
+            
             repeatOnOff.setText("Repeat On");
             
         //Jika kita ingin menonaktifkan repeat, maka akan muncul "Repeat Off"
         } else if(repeat == true) {
             repeat = false;
             Player.setRepeat(repeat);
-
+            
             repeatOnOff.setText("Repeat Off");
         }
     }//GEN-LAST:event_repeatButtonMouseClicked
@@ -614,7 +614,7 @@ public class Home extends javax.swing.JFrame {
                 } catch (LineUnavailableException lineException){                   
                 } catch (IllegalArgumentException illException) {
                 } finally {
-                    //tutup line itu terbuka
+                    //Untuk menutup line jika terbuka
                     if (line != null && !opened){
                         line.close();
                     }
@@ -661,7 +661,7 @@ public class Home extends javax.swing.JFrame {
                     
                 } catch (LineUnavailableException | IllegalArgumentException lineException){
                 } finally {
-                    //tutup line itu terbuka
+                    //Untuk menutup line yang terbuka
                     if (line != null && !opened){
                         line.close();
                     }
