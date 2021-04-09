@@ -198,7 +198,7 @@ public class Home extends javax.swing.JFrame {
 
         songNameDisplay.setFont(new java.awt.Font("Berlin Sans FB", 0, 14)); // NOI18N
         songNameDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        songNameDisplay.setText("Untuk Display Lagu");
+        songNameDisplay.setText("Untuk Menampilkan Lagu");
 
         javax.swing.GroupLayout songNameSubPanelLayout = new javax.swing.GroupLayout(songNameSubPanel);
         songNameSubPanel.setLayout(songNameSubPanelLayout);
